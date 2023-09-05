@@ -28,9 +28,15 @@ for i in range(len(image)-2):
         new_image[i][j] = convolve(gray_img[i:i+3 ,j:j+3] , laplacian)
 
 
-print(new_image)
-new_image = cv.cvtColor(new_image, cv.COLOR_GRAY2BGR) 
-cv.imshow("sample", new_image)
 
-cv.waitKey(0)
 
+# Calculate the variance of the values 
+new_image = new_image.flatten()
+
+mean = np.mean(new_image)
+variance = np.var(new_image)
+
+
+# Higher the variance less blurr
+print(variance)
+ 
